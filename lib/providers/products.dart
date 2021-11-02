@@ -9,7 +9,7 @@ class Products with ChangeNotifier {
       title: 'Red Shirt',
       description: 'A red shirt - it is pretty red!',
       price: 29.99,
-      imageUrl: 'https://cdn.pixabay.com/photo/2016/10/02/22/17/red-t-shirt-1710578_1280.jpg',
+      imageUrl: 'https://media.istockphoto.com/photos/plain-red-tee-shirt-isolated-on-white-background-picture-id471188329?k=20&m=471188329&s=612x612&w=0&h=NowWqlCvN1jm7JbqxeQPke0WJHd0LbPI2qFKWlr_F20=',
     ),
     Product(
       id: 'p2',
@@ -35,8 +35,28 @@ class Products with ChangeNotifier {
     ),
   ];
 
+  // var _showFavoritesOnly = false;
+  //
+  // void showFavoritesOnly() {
+  //   _showFavoritesOnly = true;
+  //   notifyListeners();
+  // }
+  //
+  // void showAll() {
+  //   _showFavoritesOnly = false;
+  //   notifyListeners();
+  // }
+
+
   List<Product> get items {
+    // if (_showFavoritesOnly) {
+    //   return _items.where((prodItem) => prodItem.isFavorite).toList();
+    // }
     return [..._items];
+  }
+
+  List<Product> get favoriteItems {
+    return _items.where((prodItem) => prodItem.isFavorite).toList();
   }
 
   Product findById(String id) {
